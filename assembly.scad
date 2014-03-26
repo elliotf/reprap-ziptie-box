@@ -74,7 +74,7 @@ y = 1;
 z = 2;
 box = [200,200,200];
 thickness = 6;
-min_material_width = 40;
+min_material_width = 25;
 
 // top
 translate([0,0,thickness/2+1])
