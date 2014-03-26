@@ -72,27 +72,39 @@ module box_side_zip(dimensions=[0,0],sides=[0,0,0,0],thickness=6) {
 x = 0;
 y = 1;
 z = 2;
-box = [200,150,100];
+box = [200,200,200];
 thickness = 6;
+min_material_width = 40;
 
 // top
-translate([0,0,thickness])
-  color("lavender") box_side_zip([box[x],box[y]],[1,2,2,2]);
+translate([0,0,thickness/2+1])
+  color("lavender") difference() {
+    box_side_zip([box[x],box[y]],[1,2,2,2]);
+
+    cube([box[x]-min_material_width*2,box[y]-min_material_width*2,thickness+1],center=true);
+  }
 
 // sides
 for(side=[-1,1]) {
-  translate([(box[x]/2+thickness)*side,0,-box[z]/2]) rotate([0,90*side,0])
-    color("lightgreen") box_side_zip([box[z],box[y]],[2,1,2,1]);
+  translate([(box[x]/2+thickness/2+1)*side,0,-box[z]/2]) rotate([0,90*side,0])
+    color("lightgreen") difference() {
+      box_side_zip([box[z],box[y]],[2,1,2,1]);
+
+      cube([box[z]-min_material_width*2,box[y]-min_material_width*2,thickness+1],center=true);
+    }
 }
 
 // front
-translate([0,-box[y]/2-thickness,-box[z]/2]) rotate([90,0,0])
-  color("lightblue") box_side_zip([box[x],box[z]],[1,1,1,1]);
+translate([0,-box[y]/2-thickness/2-1,-box[z]/2]) rotate([90,0,0])
+  color("lightblue") difference() {
+    box_side_zip([box[x],box[z]],[1,1,1,1]);
+    cube([box[x]-min_material_width*2,box[z]-min_material_width*2,thickness+1],center=true);
+  }
 
 // rear
-translate([0,box[y]/2+thickness,-box[z]/2]) rotate([90,0,0])
+translate([0,box[y]/2+thickness/2+1,-box[z]/2]) rotate([90,0,0])
   box_side_zip([box[x],box[z]],[2,1,2,1]);
 
 // bottom
-translate([0,0,-box[z]-thickness])
+translate([0,0,-box[z]-thickness/2-1])
   color("orange") box_side_zip([box[x],box[y]],[1,2,2,2]);
