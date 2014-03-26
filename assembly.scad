@@ -10,7 +10,7 @@ module box_side_zip(dimensions=[0,0],sides=[0,0,0,0],thickness=6) {
   ziptie_thickness=1.5;
 
   module tabs_for_line(to_fill=0,offset=0) {
-    min_tab_len = 20;
+    min_tab_len = 35;
     num_fit     = floor(to_fill/min_tab_len);
     // ensure we have an odd number of spaces
     num_tabs    = (num_fit % 2) ? num_fit : num_fit+1;
