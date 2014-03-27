@@ -36,11 +36,15 @@ include <sheets.scad>;
   }
 }
 
-% for(side=[left,right]) {
+for(side=[left,right]) {
   // return bearing
   //translate([(x_rod_len/2+bearing_outer)*side,box[y]/2*front,x_rod_pos[z]-bearing_outer/2]) {
-  mirror([1-side,0,0])
-    translate(return_idler_pos)
+  mirror([1-side,0,0]) {
+    % translate(return_idler_pos)
       rotate([0,90,0])
         cylinder(r=bearing_outer/2,h=bearing_height,center=true);
+
+    translate(xy_idler_mount_pos)
+      cube([linear_bearing_diam*2,linear_bearing_len*3,sheet_thickness],center=true);
+  }
 }

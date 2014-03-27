@@ -13,10 +13,12 @@ y_rod_len  = box[y]-20;
 y_rod_lift = rod_diam/2;
 y_rod_pos  = [build[x]/2,0,top_sheet_pos[z]+sheet_thickness/2+y_rod_lift];
 
-x_rod_spacing = bearing_outer*2+rod_diam+2;
-x_rod_len = y_rod_pos[x]*2+linear_bearing_diam;
+x_rod_spacing = bearing_outer*2+1+rod_diam+ziptie_thickness*4;
+x_rod_len = y_rod_pos[x]*2+linear_bearing_diam+bearing_outer;
 x_rod_pos = [0,0,y_rod_pos[z]+linear_bearing_diam/2+sheet_thickness/2+rod_diam/2];
 
-xy_idler_pos = [x_rod_len/2+bearing_outer/2-bearing_inner,bearing_outer/2+.5,x_rod_pos[z]];
+xy_idler_mount_pos = [y_rod_pos[x],0,x_rod_pos[z]-rod_diam/2-sheet_thickness/2];
+
+xy_idler_pos = [y_rod_pos[x]+bearing_outer-bearing_inner,bearing_outer/2+.5,x_rod_pos[z]-rod_diam/2+bearing_height/2];
 
 return_idler_pos = [xy_idler_pos[x]+bearing_outer/2,box[y]/2*front,xy_idler_pos[z]-bearing_outer/2];
