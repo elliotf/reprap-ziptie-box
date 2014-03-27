@@ -6,7 +6,8 @@ translate([0,0,sheet_thickness/2+.05])
   color("lavender") difference() {
     box_side_zip([box[x],box[y]],[1,2,2,2]);
 
-    cube([box[x]-min_material_width*2,box[y]-min_material_width*2,sheet_thickness+1],center=true);
+    //cube([box[x]-min_material_width*2,box[y]-min_material_width*2,sheet_thickness+1],center=true);
+    cube([y_rod_pos[x]*2+linear_bearing_diam+ziptie_thickness*2,box[y]-min_material_width*2,sheet_thickness+1],center=true);
   }
 
 // sides

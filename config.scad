@@ -25,8 +25,16 @@ ziptie_thickness = 1.5;
 linear_bearing_diam = 15;
 linear_bearing_len  = 24;
 
+/* 608
 bearing_outer = 22;
 bearing_inner = 8;
 bearing_height = 7;
+*/
+
+/* 625
+*/
+bearing_outer = 15;
+bearing_inner = 5;
+bearing_height = 5;
 
 rod_diam = 8;
