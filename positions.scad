@@ -11,7 +11,7 @@ y_rod_len  = box[y]-20;
 
 //y_rod_lift = linear_bearing_diam/2+ziptie_thickness; // should be enough for linear bearings with zip ties to clear box
 y_rod_lift = rod_diam/2;
-y_rod_pos  = [build[x]/2,0,top_sheet_pos[z]+sheet_thickness/2+y_rod_lift];
+y_rod_pos  = [box[x]/2+sheet_thickness+ziptie_thickness+linear_bearing_diam/2,0,top_sheet_pos[z]+sheet_thickness/2+y_rod_lift];
 
 x_rod_spacing = bearing_outer*2+1+rod_diam+ziptie_thickness*4;
 x_rod_len = y_rod_pos[x]*2+linear_bearing_diam+bearing_outer;
