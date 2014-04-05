@@ -62,6 +62,12 @@ module box_side_zip(dimensions=[0,0],sides=[0,0,0,0],thickness=6,min_tab_len=30)
         if (sides[side] == IS_SLOT) {
           translate([0,offset_for_side(side),0])
             tabs_for_line(len_for_side(side)-thickness*2,1);
+
+          for(end=[-1,1]) {
+            translate([len_for_side(side)/2*end,offset_for_side(side),0])
+            //translate([0,offset_for_side(side),0])
+              cube([thickness*2,thickness+0.1,thickness+0.05],center=true);
+          }
         }
       }
     }
