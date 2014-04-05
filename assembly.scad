@@ -3,6 +3,7 @@ include <positions.scad>;
 include <sheets.scad>;
 
 // y rods/bearings
+/*
 % for(side=[left,right]) {
   mirror([1-side,0,0]) {
     translate(y_rod_pos) {
@@ -48,3 +49,4 @@ for(side=[left,right]) {
       cube([linear_bearing_diam*2,linear_bearing_len*3,sheet_thickness],center=true);
   }
 }
+*/

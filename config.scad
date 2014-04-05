@@ -12,7 +12,7 @@ right = 1;
 top = 1;
 bottom = -1;
 
-build = [200,200,200];
+build = [150,150,150];
 
 min_material_width = 25;
 sheet_thickness = 6;
